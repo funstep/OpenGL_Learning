@@ -8,4 +8,5 @@ SET(HEADER_FILES
     ${HEADERS_DIR}/Types.h
     ${HEADERS_DIR}/General.h
     ${HEADERS_DIR}/Window/Window.h
+    ${HEADERS_DIR}/Application/Application.h
 )

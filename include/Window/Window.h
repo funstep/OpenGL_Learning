@@ -3,9 +3,12 @@
 #include <Types.h>
 
 namespace LearningOpenGL {
+
     class Window {
+            friend class Application;
+
         protected:
-            sf::Window *_window;
+            sf::RenderWindow *_window;
             std::string _windowTitle;
 
         public:
@@ -15,13 +18,25 @@ namespace LearningOpenGL {
         public:
             Window();
             Window(int width, int height);
+            virtual ~Window();
 
             void setTitle(std::string &title);
 
-            void show();
-            void hide();
+
+            virtual void show();
+            virtual void hide();
+            virtual void close();
 
         private:
-            sf::Window *externalWindow();
+            sf::RenderWindow *externalWindow();
+
+            bool processEvents();
+
+        protected:
+            virtual void draw();
+            virtual void translateEvent(sf::Event &event);
+
+            virtual void onClose();
     };
+
 };

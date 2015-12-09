@@ -6,4 +6,5 @@ set(SOURCES_DIR ${PROJECT_DIR}/src)
 set(SOURCE_FILES
     ${SOURCES_DIR}/main.cpp
     ${SOURCES_DIR}/Window/Window.cpp
+    ${SOURCES_DIR}/Application/Application.cpp
 )
