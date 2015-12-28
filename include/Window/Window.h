@@ -1,8 +1,11 @@
 #include <SFML/Graphics.hpp>
-
 #include <Types.h>
+#include <Render/Renderer.h>
 
-namespace LearningOpenGL {
+namespace OpenGLWrapper {
+
+    class Renderer;
+    typedef std::shared_ptr<Renderer> SharedRenderer;
 
     class Window {
             friend class Application;
@@ -14,6 +17,8 @@ namespace LearningOpenGL {
         public:
             PROPERTY(int, width, setWidth)
             PROPERTY(int, height, setHeight)
+            READ_ONLY_PROPERTY(bool, isFullscreen)
+            PROPERTY(SharedRenderer, renderer, setRenderer)
 
         public:
             Window();
@@ -21,7 +26,6 @@ namespace LearningOpenGL {
             virtual ~Window();
 
             void setTitle(std::string &title);
-
 
             virtual void show();
             virtual void hide();
@@ -35,6 +39,8 @@ namespace LearningOpenGL {
         protected:
             virtual void draw();
             virtual void translateEvent(sf::Event &event);
+            virtual void translateKeyPress(sf::Event &event, sf::Keyboard::Key key);
+            virtual void toogleFullsreen();
 
             virtual void onClose();
     };

@@ -11,7 +11,8 @@ Window::Window()
 
 Window::Window(int width, int height)
     :_window(NULL),
-      _windowTitle("Window")
+      _windowTitle("Window"),
+      _isFullscreen(false)
 {
     _width = width;
     _height = height;
@@ -53,7 +54,10 @@ void Window::close()
 sf::RenderWindow* Window::externalWindow()
 {
     if (!_window) {
-        _window = new sf::RenderWindow(sf::VideoMode(_width, _height), _windowTitle);
+        _window = new sf::RenderWindow(
+                    sf::VideoMode(_width, _height),
+                    _windowTitle,
+                    _isFullscreen ? sf::Style::Fullscreen : sf::Style::Default);
     }
 
     return _window;
@@ -61,15 +65,50 @@ sf::RenderWindow* Window::externalWindow()
 
 void Window::translateEvent(sf::Event &event)
 {
-    if (event.type == sf::Event::Closed ||
-            (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)) {
-        onClose();
+    switch(event.type) {
+        case sf::Event::Closed:
+            onClose();
+            break;
+        case sf::Event::KeyPressed:
+            translateKeyPress(event, event.key.code);
+            break;
+        default:
+            break;
     }
+}
+
+void Window::translateKeyPress(sf::Event &event, sf::Keyboard::Key key)
+{
+    switch(key) {
+        case sf::Keyboard::Escape:
+            onClose();
+            break;
+// TODO: think about implementation
+//        case sf::Keyboard::F:
+//            toogleFullsreen();
+//            break;
+        default:
+            break;
+    }
+}
+
+void Window::toogleFullsreen()
+{
+    _isFullscreen = !_isFullscreen;
+
+    if (_window->isOpen()) {
+        _window->close();
+        delete _window;
+    }
+
+    show();
 }
 
 void Window::draw()
 {
-
+    if (_renderer) {
+        _renderer->render();
+    }
 }
 
 void Window::onClose()

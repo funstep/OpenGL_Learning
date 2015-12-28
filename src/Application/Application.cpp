@@ -1,7 +1,7 @@
 #include <Application/Application.h>
 #include <Window/Window.h>
 
-using namespace LearningOpenGL;
+using namespace OpenGLWrapper;
 
 Application::Application()
     :_mainWindow(SharedWindow(new Window()))

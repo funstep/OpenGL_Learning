@@ -6,7 +6,8 @@ class Window;
 typedef std::shared_ptr<Window> SharedWindow;
 
     class Application {
-        SharedWindow _mainWindow;
+        public:
+            READ_ONLY_PROPERTY(SharedWindow, mainWindow)
 
         public:
             Application();
