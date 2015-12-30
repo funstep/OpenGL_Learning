@@ -1,3 +1,6 @@
+#ifndef __WINDOW_H__
+#define __WINDOW_H__
+
 #include <SFML/Graphics.hpp>
 #include <Types.h>
 #include <Render/Renderer.h>
@@ -18,7 +21,7 @@ namespace OpenGLWrapper {
             PROPERTY(int, width, setWidth)
             PROPERTY(int, height, setHeight)
             READ_ONLY_PROPERTY(bool, isFullscreen)
-            PROPERTY(SharedRenderer, renderer, setRenderer)
+            READ_ONLY_PROPERTY(SharedRenderer, renderer)
 
         public:
             Window();
@@ -46,3 +49,5 @@ namespace OpenGLWrapper {
     };
 
 };
+
+#endif

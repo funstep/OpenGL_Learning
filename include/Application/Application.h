@@ -1,6 +1,6 @@
 #include <Types.h>
 
-namespace LearningOpenGL {
+namespace OpenGLWrapper {
 
 class Window;
 typedef std::shared_ptr<Window> SharedWindow;

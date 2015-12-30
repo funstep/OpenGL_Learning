@@ -4,7 +4,10 @@ include(./DefaultConfig.cmake)
 include(./src/Src.cmake)
 include(./include/Include.cmake)
 
-include_directories(./include)
+include_directories(
+                    ./include
+                    ${LEARNING_OPEN_GL}/include
+)
 
 add_executable(${TARGET_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 target_link_libraries(${TARGET_NAME} -lsfml-graphics -lsfml-window -lsfml-system)

@@ -1,6 +1,6 @@
 #include <Window/Window.h>
 
-using namespace LearningOpenGL;
+using namespace OpenGLWrapper;
 using namespace std;
 
 Window::Window()

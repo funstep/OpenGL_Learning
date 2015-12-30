@@ -11,8 +11,3 @@ Renderer::~Renderer()
 {
 
 }
-
-void Renderer::render() const
-{
-
-}
