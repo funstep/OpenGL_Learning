@@ -16,6 +16,7 @@ namespace OpenGLWrapper {
         protected:
             sf::RenderWindow *_window;
             std::string _windowTitle;
+            sf::ContextSettings _contextSettings;
 
         public:
             PROPERTY(int, width, setWidth)

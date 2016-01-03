@@ -57,7 +57,7 @@ sf::RenderWindow* Window::externalWindow()
         _window = new sf::RenderWindow(
                     sf::VideoMode(_width, _height),
                     _windowTitle,
-                    _isFullscreen ? sf::Style::Fullscreen : sf::Style::Default);
+                    _isFullscreen ? sf::Style::Fullscreen : sf::Style::Default, _contextSettings);
     }
 
     return _window;
