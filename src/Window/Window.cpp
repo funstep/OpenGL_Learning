@@ -21,8 +21,6 @@ Window::Window(int width, int height)
 Window::~Window()
 {
     close();
-
-    delete _window;
 }
 
 void Window::setTitle(string &title)
@@ -51,13 +49,13 @@ void Window::close()
     }
 }
 
-sf::RenderWindow* Window::externalWindow()
+std::shared_ptr<sf::RenderWindow> Window::externalWindow()
 {
     if (!_window) {
-        _window = new sf::RenderWindow(
+        _window = std::shared_ptr<sf::RenderWindow>(new sf::RenderWindow(
                     sf::VideoMode(_width, _height),
                     _windowTitle,
-                    _isFullscreen ? sf::Style::Fullscreen : sf::Style::Default, _contextSettings);
+                    _isFullscreen ? sf::Style::Fullscreen : sf::Style::Default, _contextSettings));
     }
 
     return _window;
@@ -98,7 +96,7 @@ void Window::toogleFullsreen()
 
     if (_window->isOpen()) {
         _window->close();
-        delete _window;
+        _window.reset();
     }
 
     show();
@@ -107,7 +105,7 @@ void Window::toogleFullsreen()
 void Window::draw()
 {
     if (_renderer) {
-        _renderer->render();
+        _renderer->render(_window);
     }
 }
 

@@ -14,7 +14,7 @@ namespace OpenGLWrapper {
             friend class Application;
 
         protected:
-            sf::RenderWindow *_window;
+            std::shared_ptr<sf::RenderWindow> _window;
             std::string _windowTitle;
             sf::ContextSettings _contextSettings;
 
@@ -36,7 +36,7 @@ namespace OpenGLWrapper {
             virtual void close();
 
         private:
-            sf::RenderWindow *externalWindow();
+            std::shared_ptr<sf::RenderWindow> externalWindow();
 
             bool processEvents();
 

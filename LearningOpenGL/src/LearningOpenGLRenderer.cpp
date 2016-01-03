@@ -13,7 +13,7 @@ LearningOpenGLRenderer::~LearningOpenGLRenderer()
 
 }
 
-void LearningOpenGLRenderer::render() const
+void LearningOpenGLRenderer::render(SharedSFMLWindow window)
 {
 
 }

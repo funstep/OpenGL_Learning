@@ -4,7 +4,13 @@
 #include <vector>
 #include <Types.h>
 
+namespace sf {
+    class Window;
+};
+
 namespace OpenGLWrapper {
+
+    typedef std::shared_ptr<sf::Window> SharedSFMLWindow;
 
     class Renderer
     {
@@ -12,7 +18,7 @@ namespace OpenGLWrapper {
             Renderer();
             virtual ~Renderer();
 
-            virtual void render() const = 0;
+            virtual void render(SharedSFMLWindow) = 0;
     };
 
 };

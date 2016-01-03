@@ -12,7 +12,7 @@ namespace LearningOpenGL {
             LearningOpenGLRenderer();
             ~LearningOpenGLRenderer();
 
-            virtual void render() const;
+            virtual void render(OpenGLWrapper::SharedSFMLWindow window);
     };
 
 };
