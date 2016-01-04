@@ -12,6 +12,8 @@ SET(HEADER_FILES
     ${HEADERS_DIR}/Window/Window.h
     ${HEADERS_DIR}/Application/Application.h
     ${HEADERS_DIR}/Render/Renderer.h
+    ${HEADERS_DIR}/Render/Model.h
+#    ${HEADERS_DIR}/Render/Vertex.h
 
     ${LEARNING_OPEN_GL_INCLUDE_DIR}/LearningOpenGLWindow.h
     ${LEARNING_OPEN_GL_INCLUDE_DIR}/LearningOpenGLRenderer.h

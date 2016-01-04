@@ -1,16 +1,15 @@
 #ifndef __REDERER_H__
 #define __REDERER_H__
 
-#include <vector>
 #include <Types.h>
 
 namespace sf {
-    class Window;
+    class RenderWindow;
 };
 
 namespace OpenGLWrapper {
 
-    typedef std::shared_ptr<sf::Window> SharedSFMLWindow;
+    typedef std::shared_ptr<sf::RenderWindow> SharedSFMLWindow;
 
     class Renderer
     {

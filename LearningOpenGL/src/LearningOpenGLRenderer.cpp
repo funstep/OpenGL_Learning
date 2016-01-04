@@ -1,3 +1,4 @@
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <LearningOpenGLRenderer.h>
 
 using namespace LearningOpenGL;
@@ -15,5 +16,5 @@ LearningOpenGLRenderer::~LearningOpenGLRenderer()
 
 void LearningOpenGLRenderer::render(SharedSFMLWindow window)
 {
-
+    window->clear(sf::Color(255, 255, 255, 255));
 }
